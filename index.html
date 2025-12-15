@@ -252,7 +252,7 @@
 // 安全版：呼叫 Netlify Function (Key 不會外洩)
   async function callGeminiDirect(studentAnswer, questionId) {
      
-     // 定義提示詞 (與之前相同)
+     // 定義提示詞 (這裡完全不用動)
      let specificPrompt = "";
      switch(questionId) {
         case "q1": specificPrompt = `題目：請比較鯨魚與鮪魚、鯨魚與小鼠的相似度。標準：指出「鯨魚 vs 小鼠」(>90%) 高於 「鯨魚 vs 鮪魚」。重點：確認有無正確讀數。`; break;
@@ -271,10 +271,9 @@
       ${specificPrompt}
      `;
 
-     // 🔴 關鍵改變：呼叫我們剛剛寫好的 Netlify Function 路由
-     // Netlify 會自動將 /netlify/functions/askGemini 導向 askGemini.js
      const url = `/.netlify/functions/askGemini`;
      
+     // 發送請求
      const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -283,16 +282,31 @@
         })
      });
 
+     // 1. 檢查 Netlify 連線狀態
      if (!response.ok) {
-       throw new Error(`伺服器錯誤: ${response.status}`);
+       throw new Error(`伺服器連線錯誤: ${response.status} (${response.statusText})`);
      }
 
      const data = await response.json();
-     if(data.error) throw new Error(data.error);
+
+     // 2. 修正點：正確解析 Google 傳回的錯誤 (避免出現 object Object)
+     if(data.error) {
+         // 如果 Google 拒絕，取出具體的錯誤訊息
+         let msg = data.error.message || "未知錯誤";
+         throw new Error(`Google API 錯誤: ${msg}`);
+     }
+
+     // 3. 新增檢查：AI 是否因為「安全設定」而拒絕回答？
+     // (有時候學生回答雖然正常，但 AI 誤判為敏感內容會回傳空值，導致程式崩潰)
+     if (!data.candidates || data.candidates.length === 0) {
+         throw new Error("AI 似乎在思考人生，沒有回傳任何內容 (可能是觸發了安全過濾機制，請嘗試換個說法)。");
+     }
+
      return data.candidates[0].content.parts[0].text;
-  }
+}
 </script>
 
 </body>
 
 </html>
+
