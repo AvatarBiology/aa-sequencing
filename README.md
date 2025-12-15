@@ -16,7 +16,7 @@
 ### ✨ 核心功能
 * **🐋 序列比對視覺化**：即時計算不同物種（鯨魚、小鼠、鮪魚等）的 Cytochrome c 胺基酸序列相似度。
 * **📊 自動繪製熱圖**：利用 Plotly.js 自動生成親緣關係矩陣熱圖 (Heatmap)。
-* **🤖 AI 智慧批改**：串接 **Google Gemini 1.5 Flash**，針對學生的論證提供即時、幽默且具教育意義的文字回饋。
+* **🤖 AI 智慧批改**：串接 **Google Gemini 2.5 Flash**，針對學生的論證提供即時、幽默且具教育意義的文字回饋。
 * **☁️ 雲端學習歷程**：學生的作答與 AI 回饋會透過 Google Apps Script (GAS) 自動存入 Google Sheets 供教師追蹤。
 * **🛡️ 安全架構**：採用 Netlify Functions 隱藏 API Key，防止學生端外洩。
 
@@ -37,7 +37,7 @@
 本專案採用 MIT License。 歡迎教育工作者自由修改使用於教學現場。
 
 ## 👨‍🏫 作者
-Developer: [阿凡達生物阿/AvatarBiology]
+Developer: [阿凡達生物/AvatarBiology]
 
 Role: High School Biology Teacher
 
