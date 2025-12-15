@@ -32,48 +32,13 @@
 | **Backend API** | Netlify Functions (Node.js) | Serverless 中介層 (隱藏 API Key) |
 | **Database** | Google Sheets + Google Apps Script | 學習數據存儲與後端接口 |
 
----
-
-## 🚀 安裝與部署 (Deployment Guide)
-
-本專案採用 **前後端分離** 的部署策略：
-
-### 步驟 1：Google Apps Script (後端資料庫)
-1. 建立一個新的 Google Sheet。
-2. 開啟 `擴充功能` > `Apps Script`。
-3. 貼上 `doPost` 相關程式碼，並填入 `SHEET_ID`。
-4. **部署為網頁應用程式**：
-   - 執行身分：`我 (Me)`
-   - 存取權限：`所有人 (Anyone)`
-5. 取得 GAS 發布網址 (Web App URL)。
-
-### 步驟 2：Netlify (前端與 AI 串接)
-1. 將本專案 Fork 到您的 GitHub。
-2. 在 `index.html` 中，將 `GAS_WEB_APP_URL` 修改為步驟 1 取得的網址。
-3. 登入 **Netlify** 並匯入此 GitHub Repository。
-4. 設定環境變數 (**Environment Variables**)：
-   - Key: `GEMINI_API_KEY`
-   - Value: `您的 Google Gemini API Key`
-5. 部署專案。
-
-## 📂 檔案結構說明
-
-```text
-/
-├── index.html                 # 主網頁 (含前端邏輯 & Plotly 繪圖)
-├── netlify/
-│   └── functions/
-│       └── askGemini.js       # Netlify Function (負責呼叫 Gemini API)
-├── README.md                  # 專案說明檔
-└── (Google Apps Script)       # 獨立運作於 Google 雲端，不在此 Repo 中
-
 
 ## 📝 授權 (License)
 本專案採用 MIT License。 歡迎教育工作者自由修改使用於教學現場。
 
 ## 👨‍🏫 作者
-Developer: [您的名字/GitHub ID]
+Developer: [阿凡達生物阿/AvatarBiology]
 
 Role: High School Biology Teacher
 
-Contact: [您的 Email 或連結]
+Contact: [chiang.chingfan@gmail.com]
