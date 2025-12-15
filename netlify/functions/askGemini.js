@@ -27,7 +27,7 @@ export const handler = async (event) => {
     }
 
     const requestBody = JSON.parse(event.body);
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-exp:generateContent?key=${API_KEY}`;
 
     // 3. 幫前端呼叫 Google Gemini
     const response = await fetch(apiUrl, {
