@@ -34,16 +34,6 @@
 
 ---
 
-## 📸 介面預覽 (Screenshots)
-
-> *建議在此處放上您的網站截圖，例如熱圖畫面或 AI 對話框*
-
-| 演化親緣熱圖 | AI 阿凡達互動 |
-| :---: | :---: |
-| ![熱圖範例](https://via.placeholder.com/400x300?text=Heatmap+Demo) | ![AI互動範例](https://via.placeholder.com/400x300?text=AI+Feedback+Demo) |
-
----
-
 ## 🚀 安裝與部署 (Deployment Guide)
 
 本專案採用 **前後端分離** 的部署策略：
@@ -65,15 +55,6 @@
    - Key: `GEMINI_API_KEY`
    - Value: `您的 Google Gemini API Key`
 5. 部署專案。
-恭喜您成功解決了所有技術難題！🎉
-
-這是一個結合了 前端視覺化 (Plotly)、Serverless 架構 (Netlify Functions)、生成式 AI (Gemini) 以及 雲端資料庫 (Google Sheets) 的完整專案，非常有展示價值。
-
-以下是為您量身打造的 README.md。我已經幫您設計好排版、圖示與結構，您只需要複製並貼上到 GitHub 儲存庫的 README.md 檔案中即可。
-
-(備註：文中我有預留幾個 [連結] 或 [圖片] 的位置，您上傳後可以換成真正的網址或截圖)
-
-📋 複製下方的 Markdown 程式碼：
 
 ## 📂 檔案結構說明
 
